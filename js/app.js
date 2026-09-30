@@ -74,3 +74,32 @@ function loadQuotes() {
         
 loadWeather();
 loadQuotes();
+
+function loadTasks() {
+    const tasksJSON = localStorage.getItem('dashboardTasks');
+    return tasksJSON ? JSON.parse(tasksJSON) : [];
+}
+function saveTasks(tasks) {
+    localStorage.setItem('dashboardTasks', JSON.stringify(tasks));
+}
+function addTask(taskText) {
+    const tasks = loadTasks();
+    tasks.push({ text: taskText, completed: false, id: Date.now() });
+    saveTasks(tasks);
+    displayTasks();
+}
+function toggleTask(index) {
+    const tasks = loadTasks();
+    tasks[index].completed = !tasks[index].completed;
+    saveTasks(tasks);
+    displayTasks();
+}
+function deleteTask(index) {
+    const tasks = loadTasks();
+    if (confirm(`Delete task: "${tasks[index].text}"?`)) {
+        tasks.splice(index, 1);
+        saveTasks(tasks);
+        displayTasks();
+    }
+}
+
