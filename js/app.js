@@ -38,6 +38,21 @@ function displayTasks() {
     const tasks = loadTasks();
     const list = document.getElementById('task-list');
     list.innerHTML = '';
+
+    tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.textContent = task.text;
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = "Delete";
+        deleteBtn.addEventListener('click', () => deleteTask(index));
+        li.appendChild(deleteBtn);
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = task.completed;
+        checkbox.addEventListener('click', () => toggleTask(index));
+        li.appendChild(checkbox);
+        list.appendChild(li);
+    });
 }
 
 function displayWeather(weather) {
