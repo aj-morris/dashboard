@@ -21,18 +21,7 @@ img {
    2. DESIGN TOKENS
    ========================== */
 :root {
-   body.theme-dark {
-    --color-bg: #141a26;
-    --color-surface: #1f2937;
-    --color-surface-alt: #273142;
-    --color-text: #f7fafc;
-    --color-muted: #a9b4c4;
-    --color-border: #2c3648;
-    --color-accent: #c9a9f0;
-    --color-accent-strong: #e2d1f7;
-    --color-danger: #f97066;
-    --shadow-sm: 0 2px 8px rgba(0,0,0,.3);
-}
+ 
     /* Color */
     --color-accent: #4d1979;
     --color-accent-strong: #321052;
@@ -63,6 +52,18 @@ img {
     --page-width: 64rem;
     --radius-md: 8px;
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  body.theme-dark {
+    --color-bg: #141a26;
+    --color-surface: #1f2937;
+    --color-surface-alt: #273142;
+    --color-text: #f7fafc;
+    --color-muted: #a9b4c4;
+    --color-border: #2c3648;
+    --color-accent: #c9a9f0;
+    --color-accent-strong: #e2d1f7;
+    --color-danger: #f97066;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,.3);
 }
 
 /* ==========================

@@ -4,27 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <button type="button" id="theme-toggle">Toggle dark mode</button>
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
         <h1>Weather Dashboard</h1>
     </header>
-    <main>
-        <section class="widget">
-            <h2> Sample Weather Display</h2>
-            <div id="weather-display">Loading weather…</div>
-        </section>
-
-        <section class="widget">
-             <h2>Quote</h2>
-             <div id="quotes-display">Loading quotes…</div>
-             <button type="button" id="new-quote-btn" disabled>New quote</button>
-            
-            </section>
-
-    </main>
+   <main class="dashboard">
+    <section class="widget"> 
+        <h2>Sample Weather Display</h2>  
+       <div id="weather-display">Loading weather…</div>
+    </section>
+    <section class="widget">  
+        <h2>Quote</h2>
+        <div id="quotes-display">Loading quotes…</div>
+        <button type="button" id="new-quote-btn" disabled>New quote</button>
+    </section>
+    <section class="widget">   
+        <h2>Tasks</h2>
+        <div id="task-stats"></div>
+        <form>
+            <input type="text" id="task-input">
+            <button type="submit">Add</button>
+        </form>
+        <ul id="task-list"></ul>
+    </section>
+    <button type="button" id="theme-toggle">Toggle dark mode</button>
+</main>
     <script src="js/app.js"></script>
 </body>
 </html>

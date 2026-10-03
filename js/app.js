@@ -33,6 +33,13 @@ function loadWeather() {
         });
 }
 
+
+function displayTasks() {
+    const tasks = loadTasks();
+    const list = document.getElementById('task-list');
+    list.innerHTML = '';
+}
+
 function displayWeather(weather) {
     document.getElementById('weather-display').innerHTML = `
         <div class="weather-current">
@@ -71,9 +78,6 @@ function loadQuotes() {
         });
 }
 
-        
-loadWeather();
-loadQuotes();
 
 function loadTasks() {
     const tasksJSON = localStorage.getItem('dashboardTasks');
@@ -116,6 +120,11 @@ function toggleTheme() {
         localStorage.setItem('dashboardTheme', 'light');
     }
 }
+
+loadWeather();
+loadQuotes();
+displayTasks();
+
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 initializeTheme();
 
