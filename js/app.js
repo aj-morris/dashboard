@@ -53,6 +53,26 @@ function displayTasks() {
         li.appendChild(checkbox);
         list.appendChild(li);
     });
+    displayTaskStats(tasks);
+}
+
+function displayTaskStats(tasks) {
+    const total = tasks.length;
+    const completed = tasks.filter(task => task.completed).length;
+    const pending = total - completed;
+   let percentage;
+    if (total === 0) {
+    percentage = 0;
+    } else {
+    percentage = Math.round((completed / total) * 100);
+}
+
+    document.getElementById('task-stats').innerHTML = `
+        <p>Total: ${total}</p>
+        <p>Completed: ${completed}</p>
+        <p>Pending: ${pending}</p>
+        <p>Completion: ${percentage}%</p>
+    `;
 }
 
 function displayWeather(weather) {
@@ -82,7 +102,6 @@ function loadQuotes() {
         .then(quotes => {
             allQuotes = quotes;
             displayRandomQuote();
-
             if (allQuotes.length > 0) {
                 quoteButton.disabled = false;
             }
@@ -142,4 +161,13 @@ displayTasks();
 
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 initializeTheme();
+document.getElementById('task-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
+    const taskText = document.getElementById('task-input').value.trim();
+
+    if (taskText !== "") {
+        addTask(taskText);
+        document.getElementById('task-input').value = "";
+    }
+});
