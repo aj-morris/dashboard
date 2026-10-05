@@ -24,6 +24,8 @@ currentQuoteIndex = randomIndex;
 }
 
 function loadWeather() {
+    const el = document.getElementById('weather-display');
+    el.innerHTML = `<div class="loading-state"><div class="spinner"></div><p>Loading weather…</p></div>`;
     fetch('./data/weather.json')
         .then(response => response.json())
         .then(data => displayWeather(data))
@@ -155,12 +157,12 @@ function toggleTheme() {
     }
 }
 
+initializeTheme();
 loadWeather();
 loadQuotes();
 displayTasks();
 
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-initializeTheme();
 document.getElementById('task-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -170,4 +172,7 @@ document.getElementById('task-form').addEventListener('submit', function(event) 
         addTask(taskText);
         document.getElementById('task-input').value = "";
     }
+
+
+
 });
